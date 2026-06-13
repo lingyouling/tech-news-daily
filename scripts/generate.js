@@ -211,21 +211,21 @@ function renderCategoriesNav(activeCategory, counts) {
   }).join('');
 }
 
-function renderFullPage({ dateStr, dateCN, news, counts, archiveHtml }) {
+function renderFullPage({ dateStr, dateCN, news, counts, archiveHtml, prefix = '../' }) {
   return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>科技新闻日报 - ${dateCN}</title>
-  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="${prefix}assets/style.css">
 </head>
 <body>
   <div class="app-layout">
     <!-- 左侧边栏 -->
     <aside class="sidebar">
       <div class="sidebar-header">
-        <a href="../index.html" class="logo">
+        <a href="${prefix}index.html" class="logo">
           <span class="logo-icon">📰</span>
           <span class="logo-text">科技日报</span>
         </a>
@@ -233,10 +233,10 @@ function renderFullPage({ dateStr, dateCN, news, counts, archiveHtml }) {
       </div>
 
       <nav class="sidebar-nav">
-        <a href="../index.html" class="nav-item ${dateStr === getTodayStr() ? 'active' : ''}">
+        <a href="${prefix}index.html" class="nav-item ${dateStr === getTodayStr() ? 'active' : ''}">
           <span>📅</span> 今日新闻
         </a>
-        <a href="../archive.html" class="nav-item">
+        <a href="${prefix}archive.html" class="nav-item">
           <span>📁</span> 往期归档
         </a>
       </nav>
@@ -307,10 +307,6 @@ function renderFullPage({ dateStr, dateCN, news, counts, archiveHtml }) {
 </html>`;
 }
 
-function renderIndexPage({ dateStr, dateCN, news, counts, archiveHtml }) {
-  return renderFullPage({ dateStr, dateCN, news, counts, archiveHtml });
-}
-
 function renderArchivePage(allDates) {
   const items = allDates.map(d => `
     <li class="archive-item">
@@ -368,7 +364,7 @@ function renderArchivePage(allDates) {
 }
 
 // ========== 归档管理 ==========
-function generateArchiveHtml(newsDir) {
+function generateArchiveHtml(newsDir, prefix) {
   if (!fs.existsSync(newsDir)) return '<p class="no-archive">暂无历史</p>';
 
   const files = fs.readdirSync(newsDir)
@@ -382,7 +378,8 @@ function generateArchiveHtml(newsDir) {
 
   return '<ul class="sidebar-date-list">' + files.map(f => {
     const cn = getDateCN(f);
-    return `<li><a href="news/${f}.html">${cn.slice(5)}</a></li>`;
+    const href = prefix === './' ? `news/${f}.html` : `${f}.html`;
+    return `<li><a href="${href}">${cn.slice(5)}</a></li>`;
   }).join('') + '</ul>';
 }
 
@@ -424,16 +421,18 @@ async function main() {
     if (!fs.existsSync(d)) fs.mkdirSync(d, { recursive: true });
   });
 
-  // 4. 生成归档 HTML（侧边栏用）
-  const archiveHtml = generateArchiveHtml(newsDir);
+  // 4. 生成归档 HTML（侧边栏用）—— 区分根目录和 news 子目录
+  const archiveHtmlRoot = generateArchiveHtml(newsDir, './');   // 根目录用
+  const archiveHtmlNews = generateArchiveHtml(newsDir, '../');  // news/ 子目录用
 
-  // 5. 生成今日新闻页
-  const todayHtml = renderIndexPage({ dateStr, dateCN, news: allNews, counts, archiveHtml });
-  fs.writeFileSync(path.join(newsDir, `${dateStr}.html`), todayHtml, 'utf-8');
+  // 5. 生成今日新闻页 — news/ 子目录
+  const todayHtmlNews = renderFullPage({ dateStr, dateCN, news: allNews, counts, archiveHtml: archiveHtmlNews, prefix: '../' });
+  fs.writeFileSync(path.join(newsDir, `${dateStr}.html`), todayHtmlNews, 'utf-8');
   console.log(`✓ 生成 news/${dateStr}.html`);
 
-  // 6. 生成首页（指向今日）
-  fs.writeFileSync(path.join(rootDir, 'index.html'), todayHtml, 'utf-8');
+  // 6. 生成首页（根目录）
+  const todayHtmlRoot = renderFullPage({ dateStr, dateCN, news: allNews, counts, archiveHtml: archiveHtmlRoot, prefix: './' });
+  fs.writeFileSync(path.join(rootDir, 'index.html'), todayHtmlRoot, 'utf-8');
   console.log('✓ 生成 index.html');
 
   // 7. 生成归档页
