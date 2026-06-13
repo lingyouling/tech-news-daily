@@ -4,29 +4,14 @@ on:
   schedule:
     # 每天 UTC 0:00 = 北京时间 8:00
     - cron: '0 0 * * *'
-  # 代码推送时也触发（用于首次部署）
-  push:
-    branches: [main]
-  # 支持手动触发
   workflow_dispatch:
 
-# 设置权限
 permissions:
   contents: write
-  pages: write
-  id-token: write
-
-# 防止并发冲突
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
-  build-and-deploy:
+  generate-news:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: 检出代码
@@ -46,8 +31,7 @@ jobs:
       - name: 抓取新闻并生成网页
         run: npm run generate
 
-      - name: 提交更新到 main 分支（仅定时任务）
-        if: github.event_name == 'schedule'
+      - name: 提交更新
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -59,15 +43,3 @@ jobs:
             git push
             echo "新闻日报已更新"
           fi
-
-      - name: 配置 Pages
-        uses: actions/configure-pages@v4
-
-      - name: 上传部署资源
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-
-      - name: 部署到 GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
