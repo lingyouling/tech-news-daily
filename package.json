@@ -1,0 +1,17 @@
+{
+  "name": "tech-news-daily",
+  "version": "1.0.0",
+  "description": "每日科技新闻聚合站 - AI、科技、财经",
+  "main": "scripts/generate.js",
+  "scripts": {
+    "generate": "node scripts/generate.js",
+    "dev": "npx serve ."
+  },
+  "keywords": ["news", "tech", "ai", "finance"],
+  "author": "",
+  "license": "MIT",
+  "type": "commonjs",
+  "dependencies": {
+    "rss-parser": "^3.13.0"
+  }
+}

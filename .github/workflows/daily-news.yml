@@ -1,0 +1,49 @@
+name: 每日科技新闻
+
+on:
+  schedule:
+    # 每天 UTC 0:00 = 北京时间 8:00
+    - cron: '0 0 * * *'
+  # 也支持手动触发
+  workflow_dispatch:
+
+jobs:
+  generate-news:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 安装 Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: 安装依赖
+        run: npm ci
+
+      - name: 抓取新闻并生成网页
+        run: npm run generate
+
+      - name: 提交更新
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          # 添加所有生成的文件
+          git add index.html archive.html news/ assets/
+
+          # 只在有变更时提交
+          if git diff --staged --quiet; then
+            echo "没有新的新闻内容"
+          else
+            git commit -m "📰 更新 $(date +'%Y-%m-%d') 科技新闻日报"
+            git push
+            echo "新闻日报已更新"
+          fi
