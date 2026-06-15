@@ -40,6 +40,11 @@ jobs:
             echo "没有新的新闻内容"
           else
             git commit -m "📰 更新 $(date +'%Y-%m-%d') 科技新闻日报"
-            git push
-            echo "新闻日报已更新"
+            # 推送到 main 分支
+            git push origin main
+            # 同步到 gh-pages 分支（网站从这里部署）
+            git checkout gh-pages 2>/dev/null || git checkout -b gh-pages
+            git merge main --no-edit
+            git push origin gh-pages
+            echo "✅ 新闻日报已更新并部署"
           fi
