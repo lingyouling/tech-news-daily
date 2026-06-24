@@ -2,3 +2,4 @@ node_modules/
 .npm-new/
 .DS_Store
 *.log
+!data/articles.json

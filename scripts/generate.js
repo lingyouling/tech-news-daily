@@ -258,13 +258,29 @@ function renderFullPage({ dateStr, dateCN, news, counts, archiveHtml, prefix = '
         <p class="page-date">${dateCN}</p>
       </header>
 
+      <!-- 搜索栏 -->
+      <div class="search-bar-wrapper">
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="搜索新闻标题或关键词..."
+            autocomplete="off"
+          />
+          <button id="searchClear" class="search-clear" style="display:none">✕</button>
+        </div>
+        <div id="searchResults" class="search-results" style="display:none"></div>
+      </div>
+
       <!-- 分类导航 -->
-      <div class="category-nav">
+      <div class="category-nav" id="categoryNav">
         ${renderCategoriesNav('all', counts)}
       </div>
 
       <!-- 统计条 -->
-      <div class="stats-bar">
+      <div class="stats-bar" id="statsBar">
         <span>共 <strong>${news.length}</strong> 条新闻</span>
         <span class="stats-sources">来源: ${[...new Set(news.map(n => n.sourceLabel))].join(' · ')}</span>
       </div>
@@ -274,8 +290,15 @@ function renderFullPage({ dateStr, dateCN, news, counts, archiveHtml, prefix = '
         ${news.map(renderNewsItem).join('\n')}
       </div>
 
+      <!-- 搜索无结果 -->
+      <div class="empty-state" id="searchEmpty" style="display:none">
+        <div class="empty-icon">🔍</div>
+        <h3>未找到相关新闻</h3>
+        <p>试试其他关键词</p>
+      </div>
+
       ${news.length === 0 ? `
-        <div class="empty-state">
+        <div class="empty-state" id="noNewsEmpty">
           <div class="empty-icon">📭</div>
           <h3>暂无新闻</h3>
           <p>今天的新闻还在路上，请稍后再来看看</p>
@@ -284,11 +307,14 @@ function renderFullPage({ dateStr, dateCN, news, counts, archiveHtml, prefix = '
     </main>
   </div>
 
+  <!-- 搜索浮层 -->
+  <div id="searchOverlay" class="search-overlay" style="display:none"></div>
+
   <script>
+    // ===== 分类筛选 =====
     function filterCategory(cat) {
       document.querySelectorAll('.cat-nav-btn').forEach(b => b.classList.remove('active'));
       document.querySelector('[data-category="' + cat + '"]').classList.add('active');
-
       document.querySelectorAll('.news-card').forEach(card => {
         if (cat === 'all' || card.dataset.category === cat) {
           card.style.display = '';
@@ -296,12 +322,143 @@ function renderFullPage({ dateStr, dateCN, news, counts, archiveHtml, prefix = '
           card.style.display = 'none';
         }
       });
-
-      // 可见数量更新
-      const visible = document.querySelectorAll('.news-card[style=""]').length ||
-                      document.querySelectorAll('.news-card:not([style])').length;
-      // 简化: 让 stats 更新（可选）
     }
+
+    // ===== 搜索功能 =====
+    (function() {
+      var searchInput = document.getElementById('searchInput');
+      var searchClear = document.getElementById('searchClear');
+      var searchResults = document.getElementById('searchResults');
+      var searchOverlay = document.getElementById('searchOverlay');
+      var newsList = document.getElementById('newsList');
+      var categoryNav = document.getElementById('categoryNav');
+      var statsBar = document.getElementById('statsBar');
+      var searchEmpty = document.getElementById('searchEmpty');
+      var noNewsEmpty = document.getElementById('noNewsEmpty');
+
+      var allArticles = [];
+      var searchIndexLoaded = false;
+
+      // 加载搜索索引
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '${prefix}assets/search-index.json', true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          try {
+            allArticles = JSON.parse(xhr.responseText);
+            searchIndexLoaded = true;
+          } catch(e) {}
+        }
+      };
+      xhr.send();
+
+      // 输入事件
+      var debounceTimer;
+      searchInput.addEventListener('input', function() {
+        var val = this.value.trim();
+        searchClear.style.display = val ? 'block' : 'none';
+
+        if (!val) {
+          hideSearchResults();
+          return;
+        }
+
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function() { doSearch(val); }, 200);
+      });
+
+      // 清空按钮
+      searchClear.addEventListener('click', function() {
+        searchInput.value = '';
+        searchClear.style.display = 'none';
+        searchInput.focus();
+        hideSearchResults();
+      });
+
+      // 点击遮罩关闭
+      searchOverlay.addEventListener('click', hideSearchResults);
+
+      // ESC 关闭
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') hideSearchResults();
+      });
+
+      function doSearch(query) {
+        if (!searchIndexLoaded) return;
+
+        var kw = query.toLowerCase();
+        var results = [];
+
+        for (var i = 0; i < allArticles.length; i++) {
+          var a = allArticles[i];
+          if (a.title.toLowerCase().indexOf(kw) !== -1 ||
+              (a.description && a.description.toLowerCase().indexOf(kw) !== -1)) {
+            results.push(a);
+            if (results.length >= 30) break; // 最多显示30条
+          }
+        }
+
+        if (results.length === 0) {
+          searchResults.style.display = 'none';
+          searchOverlay.style.display = 'block';
+          newsList.style.display = 'none';
+          categoryNav.style.display = 'none';
+          statsBar.style.display = 'none';
+          searchEmpty.style.display = '';
+          if (noNewsEmpty) noNewsEmpty.style.display = 'none';
+          return;
+        }
+
+        searchEmpty.style.display = 'none';
+        if (noNewsEmpty) noNewsEmpty.style.display = 'none';
+        newsList.style.display = 'none';
+        categoryNav.style.display = 'none';
+        statsBar.style.display = 'none';
+
+        var html = '';
+        var catColors = { ai: '#7c3aed', tech: '#3b82f6', finance: '#0d9488' };
+        var catLabels = { ai: '🤖 AI', tech: '💻 科技', finance: '📈 财经' };
+
+        for (var j = 0; j < results.length; j++) {
+          var r = results[j];
+          var color = catColors[r.category] || catColors.tech;
+          var label = catLabels[r.category] || catLabels.tech;
+          var desc = r.description ? r.description.slice(0, 100) : '';
+
+          html += '<div class="search-result-item" data-category="' + r.category + '">' +
+            '<div class="sr-meta">' +
+              '<span class="category-tag" style="background:' + color + '18;color:' + color + '">' + label + '</span>' +
+              '<span class="source-tag">' + r.sourceLabel + '</span>' +
+              '<span class="sr-date">' + r.date + '</span>' +
+            '</div>' +
+            '<h3 class="sr-title"><a href="' + r.link + '" target="_blank" rel="noopener">' + highlightMatch(r.title, query) + '</a></h3>' +
+            (desc ? '<p class="sr-desc">' + highlightMatch(desc, query) + '</p>' : '') +
+          '</div>';
+        }
+
+        searchResults.innerHTML = html;
+        searchResults.style.display = '';
+        searchOverlay.style.display = 'block';
+      }
+
+      function highlightMatch(text, query) {
+        var i = text.toLowerCase().indexOf(query.toLowerCase());
+        if (i === -1) return text;
+        return text.slice(0, i) +
+          '<mark class="search-highlight">' + text.slice(i, i + query.length) + '</mark>' +
+          text.slice(i + query.length);
+      }
+
+      function hideSearchResults() {
+        searchResults.style.display = 'none';
+        searchOverlay.style.display = 'none';
+        newsList.style.display = '';
+        categoryNav.style.display = '';
+        statsBar.style.display = '';
+        searchEmpty.style.display = 'none';
+        if (noNewsEmpty) noNewsEmpty.style.display = '';
+      }
+    })();
   </script>
 </body>
 </html>`;
@@ -441,13 +598,67 @@ async function main() {
   fs.writeFileSync(path.join(rootDir, 'archive.html'), archiveHtml2, 'utf-8');
   console.log('✓ 生成 archive.html');
 
-  // 8. 生成 CSS
+  // 8. 更新搜索索引
+  updateSearchIndex(allNews, dateStr, dateCN, rootDir);
+  console.log('✓ 更新搜索索引');
+
+  // 9. 生成 CSS
   const cssContent = generateCSS();
   fs.writeFileSync(path.join(assetsDir, 'style.css'), cssContent, 'utf-8');
   console.log('✓ 生成 assets/style.css');
 
   console.log(`\n✅ 完成！今日共收录 ${allNews.length} 条新闻\n`);
   return { count: allNews.length, counts };
+}
+
+// ========== 搜索索引管理 ==========
+function updateSearchIndex(todayNews, dateStr, dateCN, rootDir) {
+  const dataDir = path.join(rootDir, 'data');
+  if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir, { recursive: true });
+
+  const indexPath = path.join(dataDir, 'articles.json');
+  let allArticles = [];
+
+  // 读取已有索引
+  if (fs.existsSync(indexPath)) {
+    try {
+      allArticles = JSON.parse(fs.readFileSync(indexPath, 'utf-8'));
+    } catch (e) {
+      allArticles = [];
+    }
+  }
+
+  // 去除当天已有的旧记录
+  allArticles = allArticles.filter(a => a.date !== dateStr);
+
+  // 添加今天的新文章
+  const newArticles = todayNews.map(item => ({
+    title: item.title,
+    link: item.link,
+    description: item.description ? item.description.slice(0, 200) : '',
+    sourceLabel: item.sourceLabel,
+    category: item.category,
+    date: dateStr,
+    dateCN: dateCN,
+  }));
+  allArticles = allArticles.concat(newArticles);
+
+  // 只保留最近60天的文章（控制文件大小）
+  const cutoff = new Date();
+  cutoff.setDate(cutoff.getDate() - 60);
+  allArticles = allArticles.filter(a => new Date(a.date) >= cutoff);
+
+  // 写回主索引
+  fs.writeFileSync(indexPath, JSON.stringify(allArticles, null, 2), 'utf-8');
+
+  // 同时生成前端用的搜索索引（放 assets 目录）
+  const assetsDir = path.join(rootDir, 'assets');
+  if (!fs.existsSync(assetsDir)) fs.mkdirSync(assetsDir, { recursive: true });
+  fs.writeFileSync(
+    path.join(assetsDir, 'search-index.json'),
+    JSON.stringify(allArticles),
+    'utf-8'
+  );
 }
 
 // ========== CSS 生成 ==========
@@ -787,6 +998,132 @@ a { color: inherit; text-decoration: none; }
   font-size: 12px;
   color: var(--text-muted);
   margin-left: 8px;
+}
+
+/* ===== 搜索栏 ===== */
+.search-bar-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 0 16px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.search-bar:focus-within {
+  border-color: var(--ai);
+  box-shadow: 0 0 0 3px rgba(124,58,237,0.1);
+}
+
+.search-icon {
+  font-size: 16px;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.search-input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: transparent;
+  padding: 12px 0;
+}
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.search-clear {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+.search-clear:hover {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* 搜索结果 */
+.search-results {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  margin-top: 4px;
+  max-height: 500px;
+  overflow-y: auto;
+  z-index: 100;
+}
+
+.search-result-item {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.1s ease;
+}
+.search-result-item:last-child { border-bottom: none; }
+.search-result-item:hover { background: var(--surface-hover); }
+
+.sr-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.sr-date {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.sr-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 2px;
+}
+.sr-title a {
+  color: var(--text);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+.sr-title a:hover { color: var(--ai); }
+
+.sr-desc {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.search-highlight {
+  background: #fef08a;
+  color: #000;
+  padding: 1px 2px;
+  border-radius: 2px;
+}
+
+/* 搜索遮罩 */
+.search-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.15);
+  z-index: 99;
 }
 
 /* ===== 响应式 ===== */

@@ -29,7 +29,7 @@
 
       <div class="sidebar-archive">
         <h4>最近七天</h4>
-        <ul class="sidebar-date-list"><li><a href="news/2026-06-23.html">6月23日 星期二</a></li><li><a href="news/2026-06-22.html">6月22日 星期一</a></li><li><a href="news/2026-06-21.html">6月21日 星期日</a></li><li><a href="news/2026-06-20.html">6月20日 星期六</a></li><li><a href="news/2026-06-19.html">6月19日 星期五</a></li><li><a href="news/2026-06-18.html">6月18日 星期四</a></li><li><a href="news/2026-06-17.html">6月17日 星期三</a></li></ul>
+        <ul class="sidebar-date-list"><li><a href="news/2026-06-15.html">6月15日 星期一</a></li><li><a href="news/2026-06-14.html">6月14日 星期日</a></li><li><a href="news/2026-06-13.html">6月13日 星期六</a></li></ul>
       </div>
 
       <footer class="sidebar-footer">
@@ -44,8 +44,24 @@
         <p class="page-date">2026年6月24日 星期三</p>
       </header>
 
+      <!-- 搜索栏 -->
+      <div class="search-bar-wrapper">
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="搜索新闻标题或关键词..."
+            autocomplete="off"
+          />
+          <button id="searchClear" class="search-clear" style="display:none">✕</button>
+        </div>
+        <div id="searchResults" class="search-results" style="display:none"></div>
+      </div>
+
       <!-- 分类导航 -->
-      <div class="category-nav">
+      <div class="category-nav" id="categoryNav">
         
       <button class="cat-nav-btn active"
               data-category="all"
@@ -60,7 +76,7 @@
               onclick="filterCategory('ai')">
         <span class="cat-emoji">🤖</span>
         <span>AI</span>
-        <span class="cat-count">19</span>
+        <span class="cat-count">21</span>
       </button>
     
       <button class="cat-nav-btn "
@@ -68,7 +84,7 @@
               onclick="filterCategory('tech')">
         <span class="cat-emoji">💻</span>
         <span>科技</span>
-        <span class="cat-count">44</span>
+        <span class="cat-count">43</span>
       </button>
     
       <button class="cat-nav-btn "
@@ -76,13 +92,13 @@
               onclick="filterCategory('finance')">
         <span class="cat-emoji">📈</span>
         <span>财经</span>
-        <span class="cat-count">17</span>
+        <span class="cat-count">16</span>
       </button>
     
       </div>
 
       <!-- 统计条 -->
-      <div class="stats-bar">
+      <div class="stats-bar" id="statsBar">
         <span>共 <strong>80</strong> 条新闻</span>
         <span class="stats-sources">来源: 36氪 · 爱范儿 · 少数派 · 蓝点网</span>
       </div>
@@ -266,24 +282,9 @@
           <span class="source-tag">36氪</span>
         </div>
         <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3867038206071810?f=rss" target="_blank" rel="noopener">领益智造：H股发行价格确定为每股10.18港元</a>
+          <a href="https://36kr.com/newsflashes/3867180080010245?f=rss" target="_blank" rel="noopener">“临界点”完成近10亿融资</a>
         </h3>
-        <p class="card-desc">36氪获悉，领益智造公告，公司确定本次H股发行的最终价格为每股10.18港元，预计于2026年6月26日在香港联交所主板挂牌上市。...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="tech">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#3b82f618;color:#3b82f6">💻 科技</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3867037906555909?f=rss" target="_blank" rel="noopener">思源电气：董事兼副总经理杨帜华拟减持不超13万股</a>
-        </h3>
-        <p class="card-desc">36氪获悉，思源电气公告，公司董事兼副总经理杨帜华计划自公告之日起15个交易日后的3个月内，以集中竞价交易方式减持公司股份不超过13万股，即不超过公司总股本的0.0166%。减持原因为个人资金需求。...</p>
+        <p class="card-desc">36氪获悉，6月24日，灵巧手企业“临界点”宣布完成近10亿元融资，由未来资产、某互联网大厂、京铭资本等战略与产业资本联合领投，东风资产、国信中数、上海电科基金等产业资源方，以及清新资本、凯联资本、普华资本、天季资本、We Venture、...</p>
         <time class="card-time">2026年6月24日 星期三</time>
       </div>
     </article>
@@ -296,99 +297,9 @@
           <span class="source-tag">36氪</span>
         </div>
         <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3867036814169345?f=rss" target="_blank" rel="noopener">盛邦安全：拟投资2.49亿元建设智能通信安全研发制造基地项目</a>
+          <a href="https://36kr.com/newsflashes/3867175177098243?f=rss" target="_blank" rel="noopener">现货黄金跌破4000美元/盎司关口</a>
         </h3>
-        <p class="card-desc">36氪获悉，盛邦安全公告，公司拟通过全资子公司西安盛邦星通在西安高新区购买土地使用权，投资建设“智能通信安全研发制造基地项目”，投资总额约2.49亿元，其中固定资产投资额约1.99亿元（含土地出让金）。资金来源包括自有资金、银行贷款等。项目...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="tech">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#3b82f618;color:#3b82f6">💻 科技</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3867029606176003?f=rss" target="_blank" rel="noopener">泰晶科技：控股股东喻信东拟减持不超2.799%股份</a>
-        </h3>
-        <p class="card-desc">36氪获悉，泰晶科技公告，公司控股股东、实际控制人、董事长喻信东计划自公告披露之日起15个交易日后的3个月内，通过大宗交易和集中竞价方式合计减持公司股份不超过1080万股，即不超过公司总股本的2.799%。其中，大宗交易减持不超过700万股...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="finance">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3867023649854467?f=rss" target="_blank" rel="noopener">中谷物流：拟出售三艘集装箱船舶，预计总价不低于5.7亿元</a>
-        </h3>
-        <p class="card-desc">36氪获悉，中谷物流公告，公司拟通过公开挂牌拍卖、协议转让等方式出售“中谷20”轮、“中谷21”轮、“中谷成都”轮等三艘集装箱船舶，预计出售总价不低于5.7亿元。本次交易不构成关联交易及重大资产重组，已获董事会审议通过，无需提交股东会审议。...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="finance">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3867017098433544?f=rss" target="_blank" rel="noopener">华东医药：全资子公司获得注射用HDM2005药物临床试验批准通知书</a>
-        </h3>
-        <p class="card-desc">36氪获悉，华东医药公告，全资子公司杭州中美华东制药有限公司收到国家药监局核准签发的《药物临床试验批准通知书》，注射用HDM2005联合PD-1单抗和AD用于治疗经典型霍奇金淋巴瘤的临床试验申请获批。该药物为靶向ROR1的ADC药物，目前正...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="finance">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3867011606303745?f=rss" target="_blank" rel="noopener">SK海力士已提交美国IPO申请</a>
-        </h3>
-        <p class="card-desc">据报道，据报道，SK海力士已提交美国IPO申请，计划在纳斯达克上市。富邦证券、花旗集团、高盛、摩根大通为其首次公开募股（IPO）的承销商。（财联社）...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="tech">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#3b82f618;color:#3b82f6">💻 科技</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3867008219354115?f=rss" target="_blank" rel="noopener">8天4板平安电工：公司研发的石英布目前仍处于送样验证阶段，未实现产业化供应</a>
-        </h3>
-        <p class="card-desc">36氪获悉，平安电工公告，公司关注到近期“石英布”概念受到市场高度关注，截至本公告日，公司研发的石英布目前仍处于送样验证阶段，未实现产业化供应，较长时间内不会对公司经营业绩产生任何影响。需明确提示: 高端石英布对产品性能要求严苛，验证周期长...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="tech">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#3b82f618;color:#3b82f6">💻 科技</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3867003576767491?f=rss" target="_blank" rel="noopener">建滔集团获南向资金净买入28.16亿港元</a>
-        </h3>
-        <p class="card-desc">南向资金今日净买入157.51亿港元。建滔集团获净买入28.16亿港元；阿里巴巴-W遭净卖出9.48亿港元。（第一财经）...</p>
+        <p class="card-desc">36氪获悉，现货黄金盘中跌破4000美元/盎司整数关口，日内跌幅达2.8%。...</p>
         <time class="card-time">2026年6月24日 星期三</time>
       </div>
     </article>
@@ -401,9 +312,9 @@
           <span class="source-tag">36氪</span>
         </div>
         <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3867002729960448?f=rss" target="_blank" rel="noopener">东阳光：控股子公司拟签署2亿元IDC服务项目采购合同</a>
+          <a href="https://36kr.com/newsflashes/3867174567269638?f=rss" target="_blank" rel="noopener">亚信安全：子公司拟签订3000万元算力集群服务框架协议</a>
         </h3>
-        <p class="card-desc">36氪获悉，东阳光公告，公司控股子公司东莞云智算拟与关联方庆阳秦阳信息科技有限公司签署《IDC服务合同》，预计12个月内东莞云智算向秦阳公司采购相关IDC服务项目费用合计不超过2亿元。本次关联交易旨在满足东莞云智算业务开展及常态化运营的需求...</p>
+        <p class="card-desc">36氪获悉，亚信安全公告，公司控股子公司亚信科技拟与关联方西云算力签订《算力集群服务框架协议》，向西云算力采购算力集群服务，协议金额上限为3000万元，有效期1年。本次交易构成关联交易，已获董事会审议通过，无需提交股东会审议。...</p>
         <time class="card-time">2026年6月24日 星期三</time>
       </div>
     </article>
@@ -416,84 +327,9 @@
           <span class="source-tag">36氪</span>
         </div>
         <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3866997811090436?f=rss" target="_blank" rel="noopener">五部门联合启动工业5G独立专网试点</a>
+          <a href="https://36kr.com/newsflashes/3867169382978819?f=rss" target="_blank" rel="noopener">热门中概股美股盘前跌多涨少，蔚来跌超2%</a>
         </h3>
-        <p class="card-desc">36氪获悉，工业和信息化部联合国务院国资委等五部门共同启动工业5G独立专网试点，通过机制创新支持5G深度赋能关键行业领域。工业5G独立专网是指由工业企业主导建设接入网、核心网等关键设施，可不依赖于公共网络独立运行的企业专属5G网络。试点工作...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="finance">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3866996737250568?f=rss" target="_blank" rel="noopener">江西齐云山食品股份有限公司通过港交所上市聆讯</a>
-        </h3>
-        <p class="card-desc">36氪获悉，港交所文件显示，江西齐云山食品股份有限公司更新聆讯后资料集，意味着该公司港交所IPO通过聆讯。...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="finance">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3866989113234694?f=rss" target="_blank" rel="noopener">三星回应将回购价值近90万亿韩元的股票用于发放奖金：正在考虑，细节尚未确定</a>
-        </h3>
-        <p class="card-desc">6月24日，三星电子在监管文件中表示，公司正考虑为支付奖金而进行股票回购，但尚未确定具体时间表和规模。三星电子称，该事项仍在讨论中，最迟一个月内另行公告。此前据报道，三星正准备回购价值近90万亿韩元的股票，以用于员工奖金发放，且可能很快公布...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="finance">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3866986024965382?f=rss" target="_blank" rel="noopener">昀冢科技：拟投资15亿元建设高性能多层片式陶瓷电容器MLCC生产项目</a>
-        </h3>
-        <p class="card-desc">36氪获悉，昀冢科技公告，公司控股子公司池州昀冢拟与皖江江南新兴产业集中区管委会签署招商协议，投资建设高性能多层片式陶瓷电容器生产项目，总投资额15亿元，分两期实施。首期投资7.5亿元，由池州昀冢及池州江南新兴产业基金分别增资4.5亿元、3...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="finance">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3866982129325314?f=rss" target="_blank" rel="noopener">红板科技：拟投资不超9亿元建设高阶HDI精密电路板生产线智能化改造项目</a>
-        </h3>
-        <p class="card-desc">36氪获悉，红板科技公告，公司全资子公司赣州红板拟投资不超过9亿元，建设高阶HDI精密电路板生产线设备升级智能化改造项目，资金来源为自有及自筹资金。项目主要生产COB直显HDI电路板等高端产品，建设期12个月，预计将提升公司在高端PCB领域...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="finance">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3866979873330180?f=rss" target="_blank" rel="noopener">奥飞娱乐：拟以8000万元-1.3亿元回购公司股份</a>
-        </h3>
-        <p class="card-desc">36氪获悉，奥飞娱乐公告，拟使用自有资金和/或自筹资金以集中竞价交易方式回购公司股份，回购资金总额不低于人民币8000万元（含）且不超过人民币1.3亿元（含），回购价格不超过11元/股（含）。若按回购总金额上、下限和回购股份价格上限测算，预...</p>
+        <p class="card-desc">36氪获悉，热门中概股美股盘前跌多涨少，截至发稿，蔚来跌超2%，阿里巴巴、京东、小鹏集团跌超1%，拼多多跌0.73%，微博跌0.55%，爱奇艺跌0.1%；B站涨超2%，腾讯音乐涨0.61%。...</p>
         <time class="card-time">2026年6月24日 星期三</time>
       </div>
     </article>
@@ -506,39 +342,9 @@
           <span class="source-tag">36氪</span>
         </div>
         <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3866975423861769?f=rss" target="_blank" rel="noopener">摩根大通对宁德时代的多头持仓比例降至5.94%</a>
+          <a href="https://36kr.com/newsflashes/3867167908189190?f=rss" target="_blank" rel="noopener">美股大型科技股盘前涨跌不一，SpaceX跌近2%</a>
         </h3>
-        <p class="card-desc">36氪获悉，据香港交易所披露，摩根大通对宁德时代的多头持仓比例于6月19日从6.05%降至5.94%。...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="finance">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3866968951460868?f=rss" target="_blank" rel="noopener">海南矿业：涠洲10-3油田西区开发项目投产</a>
-        </h3>
-        <p class="card-desc">36氪获悉，海南矿业公告，公司全资子公司洛克石油（渤海）公司参与合作的涠洲10-3油田西区项目已投产。洛克渤海在项目中权益比例为35%，担任作业者。项目投产后，今年第四季度可达日产10,000桶高峰产量，有助于保障原油产量接续，并夯实海上边...</p>
-        <time class="card-time">2026年6月24日 星期三</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="finance">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
-          <span class="source-tag">36氪</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3866964517164290?f=rss" target="_blank" rel="noopener">苏州英特模科技股份有限公司创业板IPO审核状态变更为已问询</a>
-        </h3>
-        <p class="card-desc">36氪获悉，苏州英特模科技股份有限公司创业板IPO审核状态变更为已问询。...</p>
+        <p class="card-desc">36氪获悉，美股大型科技股盘前涨跌不一，截至发稿，SpaceX跌近2%，微软跌0.67%，奈飞跌0.29%，亚马逊跌0.27%；Arm涨超3%，谷歌涨0.75%，英伟达涨0.52%，苹果涨0.44%，特斯拉涨0.33%。...</p>
         <time class="card-time">2026年6月24日 星期三</time>
       </div>
     </article>
@@ -551,9 +357,251 @@
           <span class="source-tag">36氪</span>
         </div>
         <h3 class="card-title">
-          <a href="https://36kr.com/newsflashes/3866963651892231?f=rss" target="_blank" rel="noopener">商务部等7部门：严厉打击非法回收拆解报废机动车活动，规范报废机动车回收企业经营行为</a>
+          <a href="https://36kr.com/newsflashes/3867162331108615?f=rss" target="_blank" rel="noopener">祥鑫科技：拟收购液冷散热公司酷尔芯科技51%股权</a>
         </h3>
-        <p class="card-desc">36氪获悉，商务部等部门制定了《报废机动车非法回收拆解专项整治行动方案》。现予印发，本次专项整治行动聚焦解决报废机动车回收行业存在的突出问题，各地区各相关部门要坚持问题导向，健全协同监管机制，严厉打击非法回收拆解报废机动车活动，规范报废机动...</p>
+        <p class="card-desc">36氪获悉，祥鑫科技公告，公司董事会审议通过《关于签订股权收购框架协议的议案》，拟通过现金收购与增资相结合的方式取得苏州酷尔芯科技有限公司51%股权。目标公司主要从事液冷散热器件的研发、生产和销售，主要产品包括波纹管、散热管集成模组等，能够...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="finance">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867161712186375?f=rss" target="_blank" rel="noopener">4连板兴业科技：股票交易异常波动，收购磷化铟业务影响极小</a>
+        </h3>
+        <p class="card-desc">36氪获悉，兴业科技公告，公司股票连续两个交易日收盘价涨幅累计偏离超过20%，属于股票交易异常波动。公司澄清，拟收购磷化铟业务尚需董事会审议，存在不确定性；该业务净资产账面价值预计不超过2500万元，2026年1-5月收入预计不超过500万...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="finance">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867158603273218?f=rss" target="_blank" rel="noopener">极豪科技（天津）股份有限公司递表港交所</a>
+        </h3>
+        <p class="card-desc">36氪获悉，据港交所文件，极豪科技（天津）股份有限公司向港交所提交上市申请书。...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="finance">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867146826650632?f=rss" target="_blank" rel="noopener">2连板海南海药：抗肝纤维化创新药氟非尼酮胶囊已完成II期临床试验，目前Ⅲ期临床研究正按计划推进</a>
+        </h3>
+        <p class="card-desc">36氪获悉，海南海药公告，公司抗肝纤维化创新药氟非尼酮胶囊已完成II期临床试验，目前Ⅲ期临床研究正按计划推进；公司抗癫痫创新药派恩加滨片已完成IIa期临床试验，目前IIb期临床试验正在按计划推进。新药研发具有周期长、投入大、风险高的特点，临...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="finance">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867130876843272?f=rss" target="_blank" rel="noopener">德尔玛：持股5%以上股东磐茂投资拟减持不超5%股份</a>
+        </h3>
+        <p class="card-desc">36氪获悉，德尔玛公告，持股5%以上股东磐茂（上海）投资中心（有限合伙）计划在公告披露之日起十五个交易日后的三个月内，以集中竞价及大宗交易方式合计减持公司股份不超过2296.26万股（占公司扣除回购股份后总股本的比例为5%）。...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#3b82f618;color:#3b82f6">💻 科技</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867124317541633?f=rss" target="_blank" rel="noopener">中科曙光万卡集群存储刷新IO500榜单全球纪录</a>
+        </h3>
+        <p class="card-desc">36氪获悉，6月24日，在德国ISC 2026高性能计算大会期间，全球存储榜单IO500公布最新排名。中科曙光ParaStor F9000分布式全闪存储系统在生产型全节点与10节点两大核心榜单中均位列全球第一，并刷新世界纪录。...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="finance">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867120980841736?f=rss" target="_blank" rel="noopener">美财长贝森特：今年有望实现3%或更高的增长</a>
+        </h3>
+        <p class="card-desc">美财长贝森特表示，今年很有可能重现上世纪90年代经济持续扩张的态势，有望实现3%或更高的增长。（财联社）...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="finance">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867117419205636?f=rss" target="_blank" rel="noopener">圣邦股份：确定H股发行价格为每股85.20港元</a>
+        </h3>
+        <p class="card-desc">36氪获悉，圣邦股份公告，公司确定本次H股发行的最终价格为每股85.20港元。本次发行的H股预计于2026年6月26日在香港联交所主板挂牌并开始上市交易。...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#7c3aed18;color:#7c3aed">🤖 AI</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867114597848067?f=rss" target="_blank" rel="noopener">宇树R1人形机器人降价至2.99万元起</a>
+        </h3>
+        <p class="card-desc">宇树科技宣布旗下双足人形机器人Unitree R1官方售价由3.99万元下调至2.99万元起，并即日起开放现货销售。该机器人重25千克，配备26个高精度关节，支持语音与图像多模态大模型交互，具备开发与定制能力。（财联社）...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="finance">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867110664049926?f=rss" target="_blank" rel="noopener">4天2板奥康国际：筹划重大资产购买事项，股票停牌</a>
+        </h3>
+        <p class="card-desc">36氪获悉，奥康国际公告，公司正在筹划涉及资产购买的重大事项，目前尚处于筹划阶段。鉴于近期公司股价涨幅较大，相关事项存在不确定性，为保证公平信息披露、维护投资者利益，公司股票自2026年6月25日开市起停牌，预计连续停牌时间不超过2个交易日...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="finance">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867105742869766?f=rss" target="_blank" rel="noopener">高盛：中国居民的股票配置相对于其长期潜力而言仍然较低</a>
+        </h3>
+        <p class="card-desc">高盛中国宏观经济团队近日发布的研究报告称，中国居民资产配置正处于结构性转型的初期阶段。由于房地产在财富积累中的作用逐渐减弱，且存款利率保持在低位，储蓄可能逐步向更广泛的金融资产转移，而股票和保险有望成为中期的主要受益者。“中国居民的股票配置...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="finance">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#0d948818;color:#0d9488">📈 财经</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867102554641665?f=rss" target="_blank" rel="noopener">3天2板长电科技：拟投资78亿元建设高端先进封测工厂</a>
+        </h3>
+        <p class="card-desc">36氪获悉，长电科技公告，公司拟通过设立控股子公司，在上海临港新片区建设高端先进封测工厂，投资总额78亿元，其中注册资本预计40亿元。项目分两期建设，一期包括厂房建设、装修工程及设备投资等，计划2028年下半年完成。本次投资旨在加快高端先进...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#3b82f618;color:#3b82f6">💻 科技</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867102042952967?f=rss" target="_blank" rel="noopener">金力永磁：拟受让包头稀土产品交易所9.24%股权</a>
+        </h3>
+        <p class="card-desc">36氪获悉，金力永磁公告，公司拟通过内蒙古产权交易中心公开挂牌转让方式，受让北方稀土持有的包头稀土产品交易所有限公司9.24%股权，预计交易价格为2208.36万元。本次投资旨在提升公司稀土原材料供应保障能力，增强综合竞争力，不构成关联交易...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#3b82f618;color:#3b82f6">💻 科技</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867096901047560?f=rss" target="_blank" rel="noopener">2026年度票房破170亿</a>
+        </h3>
+        <p class="card-desc">36氪获悉，据网络平台数据，截至6月24日19时29分，2026年年度总票房（含预售）突破170亿。...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#3b82f618;color:#3b82f6">💻 科技</span>
+          <span class="source-tag">36氪</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://36kr.com/newsflashes/3867094985544705?f=rss" target="_blank" rel="noopener">2连板德尔未来：目前在手订单主要为零星的石墨烯检测业务，2026年订单额极小</a>
+        </h3>
+        <p class="card-desc">36氪获悉，德尔未来公告，公司石墨烯相关业务以销售石墨烯制备设备、应用产品及提供检测服务为主。2025年度，上述业务收入分别为46.28万元、4.3万元和40.28万元，合计仅占公司营业收入的0.07%。目前在手订单主要为零星的石墨烯检测业...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#3b82f618;color:#3b82f6">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1669897?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">EcoFlow 发布多款智慧能源生态新品，最重要是一个能源管理系统  OASIS 3.0</a>
+        </h3>
+        <p class="card-desc">储能也有智能操作系统和智能体了。
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年6月24日 星期三</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#7c3aed18;color:#7c3aed">🤖 AI</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1669886?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">1999 元的 AI 眼镜，Meta 想让你像买墨镜一样买它</a>
+        </h3>
+        <p class="card-desc">他们真正在改造的品类，是墨镜。
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
         <time class="card-time">2026年6月24日 星期三</time>
       </div>
     </article>
@@ -857,40 +905,6 @@
       <div class="card-content">
         <div class="card-meta">
           <span class="category-tag" style="background:#3b82f618;color:#3b82f6">💻 科技</span>
-          <span class="source-tag">爱范儿</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://www.ifanr.com/1669204?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">刚刚，Codex 大更新，你在电脑的操作正在成为 AI 经验包</a>
-        </h3>
-        <p class="card-desc">人类操作软件的经验，正在变成 AI 技能
-#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
-        <time class="card-time">2026年6月19日 星期五</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="tech">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#3b82f618;color:#3b82f6">💻 科技</span>
-          <span class="source-tag">爱范儿</span>
-        </div>
-        <h3 class="card-title">
-          <a href="https://www.ifanr.com/1669442?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">早报｜追觅组织调整，取消未落地业务/DeepSeek识图模式上线/《GTA6》预购时间官宣</a>
-        </h3>
-        <p class="card-desc">· Counterpoint：第 20 周全球手机销量同比下降 8%，华为逆势增长 23%
-· 曹操出行宣布 RoboX 战略，2030 年部署 10 万辆 Robotaxi
-· ChatGPT 推出定时任务功能
-#欢迎关注爱范儿官方微...</p>
-        <time class="card-time">2026年6月19日 星期五</time>
-      </div>
-    </article>
-  
-
-    <article class="news-card" data-category="tech">
-      <div class="card-content">
-        <div class="card-meta">
-          <span class="category-tag" style="background:#3b82f618;color:#3b82f6">💻 科技</span>
           <span class="source-tag">少数派</span>
         </div>
         <h3 class="card-title">
@@ -942,7 +956,7 @@
           <a href="https://sspai.com/post/111438" target="_blank" rel="noopener">派早报：新款理想 L8 换代上市、Meta 发布 Meta Glasses 智能眼镜等</a>
         </h3>
         <p class="card-desc">Cloudflare 联合主流浏览器厂商推进 PACT 协议，腾讯推出 TenPayGo 等。查看全文...</p>
-        <time class="card-time">2026年6月23日 星期二</time>
+        <time class="card-time">2026年6月24日 星期三</time>
       </div>
     </article>
   
@@ -1338,15 +1352,25 @@
   
       </div>
 
+      <!-- 搜索无结果 -->
+      <div class="empty-state" id="searchEmpty" style="display:none">
+        <div class="empty-icon">🔍</div>
+        <h3>未找到相关新闻</h3>
+        <p>试试其他关键词</p>
+      </div>
+
       
     </main>
   </div>
 
+  <!-- 搜索浮层 -->
+  <div id="searchOverlay" class="search-overlay" style="display:none"></div>
+
   <script>
+    // ===== 分类筛选 =====
     function filterCategory(cat) {
       document.querySelectorAll('.cat-nav-btn').forEach(b => b.classList.remove('active'));
       document.querySelector('[data-category="' + cat + '"]').classList.add('active');
-
       document.querySelectorAll('.news-card').forEach(card => {
         if (cat === 'all' || card.dataset.category === cat) {
           card.style.display = '';
@@ -1354,12 +1378,143 @@
           card.style.display = 'none';
         }
       });
-
-      // 可见数量更新
-      const visible = document.querySelectorAll('.news-card[style=""]').length ||
-                      document.querySelectorAll('.news-card:not([style])').length;
-      // 简化: 让 stats 更新（可选）
     }
+
+    // ===== 搜索功能 =====
+    (function() {
+      var searchInput = document.getElementById('searchInput');
+      var searchClear = document.getElementById('searchClear');
+      var searchResults = document.getElementById('searchResults');
+      var searchOverlay = document.getElementById('searchOverlay');
+      var newsList = document.getElementById('newsList');
+      var categoryNav = document.getElementById('categoryNav');
+      var statsBar = document.getElementById('statsBar');
+      var searchEmpty = document.getElementById('searchEmpty');
+      var noNewsEmpty = document.getElementById('noNewsEmpty');
+
+      var allArticles = [];
+      var searchIndexLoaded = false;
+
+      // 加载搜索索引
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', './assets/search-index.json', true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          try {
+            allArticles = JSON.parse(xhr.responseText);
+            searchIndexLoaded = true;
+          } catch(e) {}
+        }
+      };
+      xhr.send();
+
+      // 输入事件
+      var debounceTimer;
+      searchInput.addEventListener('input', function() {
+        var val = this.value.trim();
+        searchClear.style.display = val ? 'block' : 'none';
+
+        if (!val) {
+          hideSearchResults();
+          return;
+        }
+
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function() { doSearch(val); }, 200);
+      });
+
+      // 清空按钮
+      searchClear.addEventListener('click', function() {
+        searchInput.value = '';
+        searchClear.style.display = 'none';
+        searchInput.focus();
+        hideSearchResults();
+      });
+
+      // 点击遮罩关闭
+      searchOverlay.addEventListener('click', hideSearchResults);
+
+      // ESC 关闭
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') hideSearchResults();
+      });
+
+      function doSearch(query) {
+        if (!searchIndexLoaded) return;
+
+        var kw = query.toLowerCase();
+        var results = [];
+
+        for (var i = 0; i < allArticles.length; i++) {
+          var a = allArticles[i];
+          if (a.title.toLowerCase().indexOf(kw) !== -1 ||
+              (a.description && a.description.toLowerCase().indexOf(kw) !== -1)) {
+            results.push(a);
+            if (results.length >= 30) break; // 最多显示30条
+          }
+        }
+
+        if (results.length === 0) {
+          searchResults.style.display = 'none';
+          searchOverlay.style.display = 'block';
+          newsList.style.display = 'none';
+          categoryNav.style.display = 'none';
+          statsBar.style.display = 'none';
+          searchEmpty.style.display = '';
+          if (noNewsEmpty) noNewsEmpty.style.display = 'none';
+          return;
+        }
+
+        searchEmpty.style.display = 'none';
+        if (noNewsEmpty) noNewsEmpty.style.display = 'none';
+        newsList.style.display = 'none';
+        categoryNav.style.display = 'none';
+        statsBar.style.display = 'none';
+
+        var html = '';
+        var catColors = { ai: '#7c3aed', tech: '#3b82f6', finance: '#0d9488' };
+        var catLabels = { ai: '🤖 AI', tech: '💻 科技', finance: '📈 财经' };
+
+        for (var j = 0; j < results.length; j++) {
+          var r = results[j];
+          var color = catColors[r.category] || catColors.tech;
+          var label = catLabels[r.category] || catLabels.tech;
+          var desc = r.description ? r.description.slice(0, 100) : '';
+
+          html += '<div class="search-result-item" data-category="' + r.category + '">' +
+            '<div class="sr-meta">' +
+              '<span class="category-tag" style="background:' + color + '18;color:' + color + '">' + label + '</span>' +
+              '<span class="source-tag">' + r.sourceLabel + '</span>' +
+              '<span class="sr-date">' + r.date + '</span>' +
+            '</div>' +
+            '<h3 class="sr-title"><a href="' + r.link + '" target="_blank" rel="noopener">' + highlightMatch(r.title, query) + '</a></h3>' +
+            (desc ? '<p class="sr-desc">' + highlightMatch(desc, query) + '</p>' : '') +
+          '</div>';
+        }
+
+        searchResults.innerHTML = html;
+        searchResults.style.display = '';
+        searchOverlay.style.display = 'block';
+      }
+
+      function highlightMatch(text, query) {
+        var i = text.toLowerCase().indexOf(query.toLowerCase());
+        if (i === -1) return text;
+        return text.slice(0, i) +
+          '<mark class="search-highlight">' + text.slice(i, i + query.length) + '</mark>' +
+          text.slice(i + query.length);
+      }
+
+      function hideSearchResults() {
+        searchResults.style.display = 'none';
+        searchOverlay.style.display = 'none';
+        newsList.style.display = '';
+        categoryNav.style.display = '';
+        statsBar.style.display = '';
+        searchEmpty.style.display = 'none';
+        if (noNewsEmpty) noNewsEmpty.style.display = '';
+      }
+    })();
   </script>
 </body>
 </html>
