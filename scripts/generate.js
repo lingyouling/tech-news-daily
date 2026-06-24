@@ -218,7 +218,7 @@ function renderFullPage({ dateStr, dateCN, news, counts, archiveHtml, prefix = '
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>科技新闻日报 - ${dateCN}</title>
-  <link rel="stylesheet" href="${prefix}assets/style.css">
+  <link rel="stylesheet" href="${prefix}assets/style.css?v=${dateStr}">
 </head>
 <body>
   <div class="app-layout">
@@ -478,7 +478,7 @@ function renderArchivePage(allDates) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>往期归档 - 科技新闻日报</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/style.css?v=${getTodayStr()}">
 </head>
 <body>
   <div class="app-layout">
