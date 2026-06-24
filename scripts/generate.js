@@ -212,13 +212,14 @@ function renderCategoriesNav(activeCategory, counts) {
 }
 
 function renderFullPage({ dateStr, dateCN, news, counts, archiveHtml, prefix = '../' }) {
+  var cacheVer = Date.now();
   return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>科技新闻日报 - ${dateCN}</title>
-  <link rel="stylesheet" href="${prefix}assets/style.css?v=${dateStr}">
+  <link rel="stylesheet" href="${prefix}assets/style.css?v=${cacheVer}">
 </head>
 <body>
   <div class="app-layout">
@@ -478,7 +479,7 @@ function renderArchivePage(allDates) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>往期归档 - 科技新闻日报</title>
-  <link rel="stylesheet" href="assets/style.css?v=${getTodayStr()}">
+  <link rel="stylesheet" href="assets/style.css?v=${Date.now()}">
 </head>
 <body>
   <div class="app-layout">
