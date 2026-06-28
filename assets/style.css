@@ -41,6 +41,10 @@
   --tech-bg: var(--teal-bg);
   --finance: var(--green);
   --finance-bg: var(--green-bg);
+  --car: #fbbf24;
+  --car-dim: #f59e0b;
+  --car-bg: rgba(251,191,36,0.12);
+  --car-border: rgba(251,191,36,0.25);
   --sidebar-width: 260px;
 }
 

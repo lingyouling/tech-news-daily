@@ -19,13 +19,32 @@ const RSS_SOURCES = [
   { url: 'https://www.sspai.com/feed',     category: 'tech', label: '少数派' },
   { url: 'https://www.landiannews.com/feed', category: 'tech', label: '蓝点网' },
 
-  // 备用源（以下若失效可替换）:
+  // 汽车源（暂无稳定RSS，汽车新闻通过关键词从综合源自动识别）:
+  // { url: 'https://rsshub.app/autohome/latest',  category: 'car', label: '汽车之家' },
+  // { url: 'https://36kr.com/feed',                category: 'car', label: '36氪·汽车' },
+
+  // 备用源:
   // { url: 'https://rsshub.app/jiqizhixin/home', category: 'ai', label: '机器之心' },
   // { url: 'https://www.pingwest.com/feed',      category: 'tech', label: '品玩' },
 ];
 
 // ========== 分类关键词（用于自动归类） ==========
 const CATEGORY_RULES = [
+  {
+    category: 'car',
+    keywords: [
+      '汽车', '新车', '轿车', 'SUV', 'MPV', '跑车', '轿跑', '越野',
+      '特斯拉', '比亚迪', '蔚来', '理想', '小鹏', '问界', '极氪', '零跑',
+      '小米汽车', 'SU7', 'Model', 'Cybertruck', '宝马', '奔驰', '奥迪',
+      '丰田', '本田', '大众', '保时捷', '法拉利', '兰博基尼',
+      '电动汽车', '新能源车', '混动', '纯电', '增程', '换电',
+      '自动驾驶', '智能驾驶', 'FSD', 'NOA', '激光雷达', '毫米波',
+      '电池', '续航', '充电', '快充', '超充', '换电站', '固态电池',
+      '车机', '座舱', '中控', '车载', '车联网',
+      '试驾', '测评', '提车', '交付', '销量', '降价', '涨价',
+      '概念车', '车展', '北京车展', '上海车展', '日内瓦车展',
+    ],
+  },
   {
     category: 'ai',
     keywords: [
@@ -39,11 +58,11 @@ const CATEGORY_RULES = [
   {
     category: 'tech',
     keywords: [
-      '手机', '芯片', '苹果', '华为', '小米', '特斯拉', '汽车',
+      '手机', '芯片', '苹果', '华为', '小米',
       'App', '软件', '硬件', '产品', '发布', '上线', '更新',
       '操作系统', 'Android', 'iOS', 'Windows', 'Mac',
       '云计算', 'SaaS', '数据', '安全', '开源', 'GitHub',
-      '机器人', '自动驾驶', 'VR', 'AR', 'Apple', 'Vision',
+      '机器人', 'VR', 'AR', 'Apple', 'Vision',
     ],
   },
   {
@@ -74,7 +93,7 @@ function getDateCN(dateStr) {
 
 function detectCategory(title, description) {
   const text = `${title || ''} ${description || ''}`.toLowerCase();
-  const scores = { ai: 0, tech: 0, finance: 0 };
+  const scores = { ai: 0, tech: 0, finance: 0, car: 0 };
 
   for (const rule of CATEGORY_RULES) {
     for (const kw of rule.keywords) {
@@ -155,14 +174,16 @@ async function fetchAllNews() {
 // ========== HTML 生成 ==========
 function renderNewsItem(item) {
   const catColors = {
-    ai: '#7c3aed',
-    tech: '#3b82f6',
-    finance: '#0d9488',
+    ai: '#c4b5fd',
+    tech: '#5eead4',
+    finance: '#5eeab0',
+    car: '#fbbf24',
   };
   const catLabels = {
     ai: '🤖 AI',
     tech: '💻 科技',
     finance: '📈 财经',
+    car: '🚗 汽车',
   };
   const color = catColors[item.category] || catColors.tech;
   const label = catLabels[item.category] || catLabels.tech;
@@ -192,6 +213,7 @@ function renderCategoriesNav(activeCategory, counts) {
     { key: 'ai', label: 'AI', emoji: '🤖' },
     { key: 'tech', label: '科技', emoji: '💻' },
     { key: 'finance', label: '财经', emoji: '📈' },
+    { key: 'car', label: '汽车', emoji: '🚗' },
   ];
 
   return cats.map(c => {
@@ -417,8 +439,8 @@ function renderFullPage({ dateStr, dateCN, news, counts, archiveHtml, prefix = '
         statsBar.style.display = 'none';
 
         var html = '';
-        var catColors = { ai: '#7c3aed', tech: '#3b82f6', finance: '#0d9488' };
-        var catLabels = { ai: '🤖 AI', tech: '💻 科技', finance: '📈 财经' };
+        var catColors = { ai: '#c4b5fd', tech: '#5eead4', finance: '#5eeab0', car: '#fbbf24' };
+        var catLabels = { ai: '🤖 AI', tech: '💻 科技', finance: '📈 财经', car: '🚗 汽车' };
 
         for (var j = 0; j < results.length; j++) {
           var r = results[j];
@@ -566,7 +588,7 @@ async function main() {
   const allNews = await fetchAllNews();
 
   // 2. 统计分类数量
-  const counts = { ai: 0, tech: 0, finance: 0 };
+  const counts = { ai: 0, tech: 0, finance: 0, car: 0 };
   for (const item of allNews) {
     counts[item.category] = (counts[item.category] || 0) + 1;
   }
@@ -708,6 +730,10 @@ function generateCSS() {
   --tech-bg: var(--teal-bg);
   --finance: var(--green);
   --finance-bg: var(--green-bg);
+  --car: #fbbf24;
+  --car-dim: #f59e0b;
+  --car-bg: rgba(251,191,36,0.12);
+  --car-border: rgba(251,191,36,0.25);
   --sidebar-width: 260px;
 }
 
@@ -1276,7 +1302,7 @@ a { color: inherit; text-decoration: none; }
 // ========== 执行 ==========
 main()
   .then(result => {
-    console.log(`AI: ${result.counts.ai} | 科技: ${result.counts.tech} | 财经: ${result.counts.finance}`);
+    console.log(`AI: ${result.counts.ai} | 科技: ${result.counts.tech} | 财经: ${result.counts.finance} | 汽车: ${result.counts.car}`);
     process.exit(0);
   })
   .catch(err => {
