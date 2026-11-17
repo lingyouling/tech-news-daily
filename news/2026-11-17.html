@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>科技新闻日报 - 2026年11月17日 星期二</title>
+  <link rel="stylesheet" href="../assets/style.css?v=1794897580335">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- 左侧边栏 -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="../index.html" class="logo">
+          <span class="logo-icon">📰</span>
+          <span class="logo-text">科技日报</span>
+        </a>
+        <p class="logo-sub">AI · 科技 · 财经</p>
+      </div>
+
+      <nav class="sidebar-nav">
+        <a href="../index.html" class="nav-item active">
+          <span>📅</span> 今日新闻
+        </a>
+        <a href="../archive.html" class="nav-item">
+          <span>📁</span> 往期归档
+        </a>
+      </nav>
+
+      <div class="sidebar-archive">
+        <h4>最近七天</h4>
+        <ul class="sidebar-date-list"><li><a href="2026-11-16.html">11月16日 星期一</a></li><li><a href="2026-11-15.html">11月15日 星期日</a></li><li><a href="2026-11-14.html">11月14日 星期六</a></li><li><a href="2026-11-13.html">11月13日 星期五</a></li><li><a href="2026-11-12.html">11月12日 星期四</a></li><li><a href="2026-11-11.html">11月11日 星期三</a></li><li><a href="2026-11-10.html">11月10日 星期二</a></li></ul>
+      </div>
+
+      <footer class="sidebar-footer">
+        <p>每日 8:00 自动更新</p>
+      </footer>
+    </aside>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+      <header class="page-header">
+        <h1>科技新闻日报</h1>
+        <p class="page-date">2026年11月17日 星期二</p>
+      </header>
+
+      <!-- 搜索栏 -->
+      <div class="search-bar-wrapper">
+        <div class="search-bar">
+          <span class="search-icon">🔍</span>
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="搜索新闻标题或关键词..."
+            autocomplete="off"
+          />
+          <button id="searchClear" class="search-clear" style="display:none">✕</button>
+        </div>
+        <div id="searchResults" class="search-results" style="display:none"></div>
+      </div>
+
+      <!-- 分类导航 -->
+      <div class="category-nav" id="categoryNav">
+        
+      <button class="cat-nav-btn active"
+              data-category="all"
+              onclick="filterCategory('all')">
+        <span class="cat-emoji">📋</span>
+        <span>全部</span>
+        <span class="cat-count">50</span>
+      </button>
+    
+      <button class="cat-nav-btn "
+              data-category="ai"
+              onclick="filterCategory('ai')">
+        <span class="cat-emoji">🤖</span>
+        <span>AI</span>
+        <span class="cat-count">15</span>
+      </button>
+    
+      <button class="cat-nav-btn "
+              data-category="tech"
+              onclick="filterCategory('tech')">
+        <span class="cat-emoji">💻</span>
+        <span>科技</span>
+        <span class="cat-count">34</span>
+      </button>
+    
+      <button class="cat-nav-btn "
+              data-category="finance"
+              onclick="filterCategory('finance')">
+        <span class="cat-emoji">📈</span>
+        <span>财经</span>
+        <span class="cat-count">1</span>
+      </button>
+    
+      <button class="cat-nav-btn "
+              data-category="car"
+              onclick="filterCategory('car')">
+        <span class="cat-emoji">🚗</span>
+        <span>汽车</span>
+        <span class="cat-count">0</span>
+      </button>
+    
+      </div>
+
+      <!-- 统计条 -->
+      <div class="stats-bar" id="statsBar">
+        <span>共 <strong>50</strong> 条新闻</span>
+        <span class="stats-sources">来源: 爱范儿 · 少数派 · 蓝点网</span>
+      </div>
+
+      <!-- 新闻列表 -->
+      <div class="news-list" id="newsList">
+        
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689792?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">12.69 万的「穷人版卫士」，成了中国汽车出海的「老鼠屎」</a>
+        </h3>
+        <p class="card-desc">一人犯错，全员受罚。
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689638?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">微软全球大宕机，AI 怎么又成了背锅侠</a>
+        </h3>
+        <p class="card-desc">微软宕机与美国航班停飞，背后都是 AI 失控吗？
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689760?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">早报｜iPhone Duo新增外屏人脸解锁/曝英伟达董事会无意请回黄仁勋/华为Mate X8定档11月24日</a>
+        </h3>
+        <p class="card-desc">· 阿里发布 Qwen4-Max，缓存命中价格低至每百万 Token 0.5 元
+· 腾讯混元推出 Hy4 flash，WorkBuddy 限时开放免费使用
+· 腾讯公开司庆讲话，要求核心业务团队面向 AI 再创业
+#欢迎关注爱范儿官方...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689594?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">影石这张「魔法相纸」，怎么治好了我的相册吃灰症？</a>
+        </h3>
+        <p class="card-desc">纸面上流转的不再是魔法世界的头条新闻，而是我们生活里那些真正值得举杯的闪光时刻。
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689712?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">苹果眼镜明年见：没有屏幕，全靠 Siri 撑场面？</a>
+        </h3>
+        <p class="card-desc">这不会是苹果真正想带给这个时代的答案
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689701?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">几乎每家国产新能源都在营销的「6 人 12 箱」，原来根本就是违法的！</a>
+        </h3>
+        <p class="card-desc">别让营销高于安全。
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689653?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">实测腾讯 Hy4 flash：花两毛钱，就能让 AI 从零做个 3D 交互网页</a>
+        </h3>
+        <p class="card-desc">比 DeepSeek V4.1 Flash 性价比更高
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689628?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">制糖工厂推出 EdgeTie 边边线，以转角贴边设计改善车内充电体验</a>
+        </h3>
+        <p class="card-desc">硬糖边边线，今日上线。
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689616?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">苹果智能眼镜细节曝光，居然是戴在脸上的 AirPods</a>
+        </h3>
+        <p class="card-desc">真正认真对待软件的人，应该自己去制造硬件。
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689559?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">超 16 万人请愿，黄仁勋准备「回宫」</a>
+        </h3>
+        <p class="card-desc">辞职三天，想回来了
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689549?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">反转！黄仁勋考虑重返英伟达，科技大佬连夜组建「作战室」</a>
+        </h3>
+        <p class="card-desc">黄仁勋的故事还没有结束
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689521?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">早报｜黄仁勋考虑重返英伟达担任CEO/曝苹果智能眼镜明年6月发布/微软全球大宕机结束，持续超30小时</a>
+        </h3>
+        <p class="card-desc">· 余承东：华为大折叠已成千万人主力机
+· 苹果 HomeView 发售，首批实测遇到语音和账户切换问题
+· 微软服务故障持续超 30 小时，官方宣布恢复
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时...</p>
+        <time class="card-time">2026年11月15日 星期日</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689473?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">六年磨一「球」，好听、好看、好贵｜HomePod mini 2 体验</a>
+        </h3>
+        <p class="card-desc">小身材，大嗓门
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月15日 星期日</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689501?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">刚刚，马斯克再创历史，人类首次用「筷子」夹住星舰飞船</a>
+        </h3>
+        <p class="card-desc">再创历史
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月15日 星期日</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689570?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">原厂宽体+碳纤大尾翼！用 13.38 万，买到一辆「领克 03+」</a>
+        </h3>
+        <p class="card-desc">领克 03 找到了燃油车在新时代的活法。
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月14日 星期六</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="finance">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eeab018;color:#5eeab0">📈 财经</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689450?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">早报｜英伟达员工请愿黄仁勋回归/余承东重申华为与赛力斯分工/Microsoft 365故障延续至48小时</a>
+        </h3>
+        <p class="card-desc">· 两部门公布新型储能方案，提出到 2030 年平均储能约 3 小时
+· LangChain 完成 3 亿美元 C 轮融资，估值 30 亿美元
+· 荣耀 700 系列定档 11 月 23 日，背屏可贴 GIF、看通知
+#欢迎关注爱范儿官...</p>
+        <time class="card-time">2026年11月14日 星期六</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689432?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">余承东公布华为问界新合作模式！新 M8 同步上市，起售价 37.98 万元</a>
+        </h3>
+        <p class="card-desc">新 M8 的升级，主打「实用主义」。
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月13日 星期五</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689409?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">iPhone 20 爆料汇总：一整块玻璃，藏着苹果下一个十年</a>
+        </h3>
+        <p class="card-desc">iPhone 20 会是一台伟大的产品吗？
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月13日 星期五</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689379?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">李飞飞最新世界模型正式开放，我用它一句话造出重庆山城</a>
+        </h3>
+        <p class="card-desc">世界模型的竞争要开始了吗
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月13日 星期五</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">爱范儿</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.ifanr.com/1689360?utm_source=rss&utm_medium=rss&utm_campaign=" target="_blank" rel="noopener">黄仁勋自嘲是「人渣」，英伟达员工集体喊话求回归</a>
+        </h3>
+        <p class="card-desc">没有黄仁勋的英伟达会怎样？
+#欢迎关注爱范儿官方微信公众号：爱范儿（微信号：ifanr），更多精彩内容第一时间为您奉上。...</p>
+        <time class="card-time">2026年11月13日 星期五</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">少数派</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://sspai.com/post/118442" target="_blank" rel="noopener">为了另一种可能性：在国内折腾 Linux 打游戏的二三事</a>
+        </h3>
+        <p class="card-desc">当外部的限制开始逐渐渗透、内化到每个人的内心，另一种真正的「可能性」在现今尤为珍贵。查看全文...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">少数派</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://sspai.com/post/119160" target="_blank" rel="noopener">派早报：OPPO 发布 Reno17 系列、影石发布 Insta360 Toast 墨水屏相纸等</a>
+        </h3>
+        <p class="card-desc">少数派的近期动态我们已开设专页，汇总展示「优秀作者评选」奖项及结果。「优秀作者评选」是编辑部自2023年起实行的机制，于每季度结束后，评选该季度贡献突出的现有作者，以及涌现出的有潜力新作者。获奖者会获 ...查看全文...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">少数派</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://sspai.com/post/119148" target="_blank" rel="noopener">派评 | 近期值得关注的 App</a>
+        </h3>
+        <p class="card-desc">>下载少数派客户端、关注少数派公众号，解锁全新阅读体验📰>实用、好用的正版软件，少数派为你呈现🚀查看全文...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">少数派</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://sspai.com/post/118100" target="_blank" rel="noopener">Rosetta 2 即将退役，Mac 老应用何去何从？</a>
+        </h3>
+        <p class="card-desc">Apple在Mac电脑的发展历程中经历过数次架构转换。其中最广为人知的，当属2005年从PowerPC转向Intelx86架构，以及从2020年启动、由Intelx86转向ARM64架构的AppleS ...查看全文...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">少数派</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://sspai.com/post/119012" target="_blank" rel="noopener">App+1｜不卡带：给你爱听的「老调」，配点记忆中的风味</a>
+        </h3>
+        <p class="card-desc">能切换老设备音质的媒体播放器。查看全文...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">少数派</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://sspai.com/post/119119" target="_blank" rel="noopener">派早报：逾十万人次联署要求黄仁勋复职</a>
+        </h3>
+        <p class="card-desc">逾十万人次联署要求黄仁勋复职
+Microsoft 365 服务在 19 小时全球宕机后恢复
+国产前沿模型携带 Blackwell GPU 特征
+线缆更换导致全美飞机停飞
+流媒体用户抱怨更难找到想看作品
+特斯拉 Cybercab 订阅协议包含...</p>
+        <time class="card-time">2026年11月15日 星期日</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">少数派</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://sspai.com/post/118392" target="_blank" rel="noopener">Aerial Switcher：给 Mac 的航拍壁纸排个时间表</a>
+        </h3>
+        <p class="card-desc">既然 Apple 已经把同一个地方的美景从早到晚拍了一遍并做成了壁纸，为什么不能让它们跟着时间自动切换？查看全文...</p>
+        <time class="card-time">2026年11月15日 星期日</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">少数派</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://sspai.com/post/118276" target="_blank" rel="noopener">怀旧手记｜索尼 CLIE：千禧年的高端 Palm OS PDA</a>
+        </h3>
+        <p class="card-desc">Matrix首页推荐Matrix是少数派的写作社区，我们主张分享真实的产品体验，有实用价值的经验与思考。我们会不定期挑选Matrix最优质的文章，展示来自用户的最真实的体验和观点。文章代表作者个人观点 ...查看全文...</p>
+        <time class="card-time">2026年11月14日 星期六</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">少数派</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://sspai.com/post/118999" target="_blank" rel="noopener">本周看什么 | 最近值得一看的 10 部作品</a>
+        </h3>
+        <p class="card-desc">📅本周新预告《银翼杀手2099》终极预告11月10日，剧集《银翼杀手2099》发布了终极预告，将于11月25日上线PrimeVideo。亨特·莎弗、杨紫琼主演，2099年的洛杉矶，为了彻底结束逃亡生活 ...查看全文...</p>
+        <time class="card-time">2026年11月13日 星期五</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">少数派</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://sspai.com/post/118153" target="_blank" rel="noopener">研究生如何用 AI 辅助完成一篇综述：我的科研写作工具与实践经验</a>
+        </h3>
+        <p class="card-desc">AI 改变的不是科研写作本身，而是我们完成科研写作时的工作方式。查看全文...</p>
+        <time class="card-time">2026年11月13日 星期五</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128514.html" target="_blank" rel="noopener">Siri AI开始设置每日额度：超过限额后基础功能可用 高级功能需开通iCloud+订阅扩容</a>
+        </h3>
+        <p class="card-desc">#人工智能 Siri AI 和苹果智能也开始每日限额了：每台设备每日可获得免费额度，用完需要付费或等重置。根据苹果在 iOS 27.3 测试版中的说明，需要调用云端模型的功能都设置用量限制，用完可以等次日重置。用户也可以订阅 iCloud+...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128513.html" target="_blank" rel="noopener">额！有些奇怪！iPhone Duo终于可以刷脸解锁 通过外屏前摄拍摄人脸解锁</a>
+        </h3>
+        <p class="card-desc">#手机数码 额！这解锁方式有些奇怪：iPhone Duo 在 iOS 27.3 Beta 2 中支持使用外屏前摄人脸解锁。但这里的人脸解锁并不是 Face ID，由于 Duo 没有 Face ID 所需的硬件，所以这种人脸解锁方式算是补充。...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128512.html" target="_blank" rel="noopener">汇丰/BBC/CNN等178家知名网站被投毒 iOS 13-18.x旧版本访问恶意页面即中毒</a>
+        </h3>
+        <p class="card-desc">#安全资讯 汇丰银行等 178 家全球知名机构 / 网站被批量投毒，黑客投毒后窃取信用卡信息、加密货币钱包和针对 iOS 13-18.x 部署后门。此次攻击源头来自 Optimizely 公司，该公司的实验性产品存在漏洞，黑客利用漏洞在客户...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/download/128456.html" target="_blank" rel="noopener">[开源项目] 一条提示词搭出可以游览的海底世界 文件不足100KB 场景和元素都靠GPU实时生成</a>
+        </h3>
+        <p class="card-desc">#开源项目 一片动态海底世界装进不足 100KB 的 HTML 里：有开发者通过 Claude Fable 5.2 打造 3D 海底世界开源项目。这个项目的特点是所有功能仅在不到 100KB 的 HTML 里，加载时的各种生成和渲染都由 G...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128511.html" target="_blank" rel="noopener">终于等到你！Bitwarden现已支持Windows 11原生通行密钥 其他应用可调用保险库</a>
+        </h3>
+        <p class="card-desc">#软件资讯 终于等到你！开源密码管理器 Bitwarden 终于支持 Windows 11 原生通行密钥，其他应用可通过系统调用保险库中的通行密钥。该功能可以解决的问题是，系统上安装的软件也可以请求通行密钥，此时 Windows 11 会弹...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128510.html" target="_blank" rel="noopener">也是神人！15人受影响/4人进医院：微软Outlook宕机让德国乐园泳池告警失联</a>
+        </h3>
+        <p class="card-desc">#行业资讯 神人！德国 Phantasialand 酒店泳池加氯系统靠 Outlook 邮件发警报，结果导致 15 名住户受影响，4 人直接进医院。这家酒店的自动加氯设备持续向泳池加氯，而监测系统检查到故障后通过 Outlook 给员工发邮...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128509.html" target="_blank" rel="noopener">服务器系统Windows Server 2016即将结束生命周期 微软开启ESU付费扩展更新</a>
+        </h3>
+        <p class="card-desc">#系统资讯 服务器系统 Windows Server 2016 将在明年 1 月结束 5 年免费扩展支持，微软开启 ESU 付费扩展更新。对于符合条件的标准版和数据中心版，客户可以购买 ESU 许可证继续获得最长 3 年更新。而 Essen...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128508.html" target="_blank" rel="noopener">腾讯WorkBuddy上线混元HY4 Flash模型且免费使用 活动到11月30日结束</a>
+        </h3>
+        <p class="card-desc">#人工智能 腾讯 WorkBuddy 上线混元 HY4 Flash 模型且免费使用，限免活动到 11 月 30 日结束。该模型适合在深度搜索、文档处理、PPT 生成、简单前端展示以及 Computer Use 等多数日常任务中使用。Work...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128507.html" target="_blank" rel="noopener">长程任务减少被迫总结全文：谷歌反重力将Gemini 4模型窗口翻倍 减少频繁压缩</a>
+        </h3>
+        <p class="card-desc">#软件资讯 谷歌反重力将 3 款 Gemini 4 模型上下文压缩窗口翻倍，可以减少长程任务频繁触发压缩并缩短完成时间。反重力产品负责人瓦伦莫汉称，反重力中的 Argon、Carbon 和 Hydrogen 上下文窗口翻倍，更新后预计每个用...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128506.html" target="_blank" rel="noopener">又是针对iOS 18.x的零点击攻击：荷兰14家网站被投毒 旧版iOS访问即中毒</a>
+        </h3>
+        <p class="card-desc">#安全资讯 又是针对 iOS 18.x 的零点击攻击：荷兰广告公司 NextDay Media 被攻击，黑客篡改广告向 15 家网站读者投毒。此次投毒大概率也与 DarkSword 攻击框架有关，因为同样是针对 iOS 18.x 旧版本的。...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128505.html" target="_blank" rel="noopener">埃隆马斯克依然非常与众不同：Grok API文本水印将默认关闭 除非有法律要求才默认开启</a>
+        </h3>
+        <p class="card-desc">#人工智能 埃隆马斯克还是依然非常与众不同：Grok API 文本输出盲水印政策已改成默认关闭。此前 SpaceXSI 发布通知称将从 11 月 7 日开始部署文本输出盲水印机制，通过 SynthID Text 机制识别文本由模型生成。不过...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128504.html" target="_blank" rel="noopener">知名广告拦截插件uBlock Origin出现高危漏洞 恶意网站可在其他网站运行脚本</a>
+        </h3>
+        <p class="card-desc">#安全资讯 广告拦截插件都能有漏洞？uBlock Origin 被曝出高危跨站漏洞。恶意网站可以利用漏洞诱导用户添加可信规则，然后在其他网站上运行恶意脚本。安全研究员发现漏洞后立即通报给 uBlock Origin 项目，在 11 月 3 ...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128503.html" target="_blank" rel="noopener">微软发布更新修复KMS激活错误问题 部分系统或IT管理员需手动下载安装更新</a>
+        </h3>
+        <p class="card-desc">#系统资讯 继续修修补补：微软发布 OOB 带外更新解决 KMS 激活问题，该问题由上周发布的 11 月更新引起。这个问题主要影响使用 KMS 激活的企业和云数据中心，当然如果有些用户使用的激活工具基于 KMS 那也受影响。遇到 KMS 激...</p>
+        <time class="card-time">2026年11月17日 星期二</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128502.html" target="_blank" rel="noopener">超过80%的网关服务器无法正常响应 微软初步复盘Microsoft 365全球大故障</a>
+        </h3>
+        <p class="card-desc">#行业资讯 一次正常的故障切换怎么引发 Microsoft 365 全球范围内宕机？微软发布 11 月 12 日事件初步调查报告。问题根源是 7 月份部署的代码有缺陷，但由于测试环境与生产环境不同，微软并未发现问题。在事故发生前 15 小时...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128501.html" target="_blank" rel="noopener">糟了！DeepSeek面临算力紧缺 开始实施每日对话限额以及输入长度上限</a>
+        </h3>
+        <p class="card-desc">#人工智能 DeepSeek 因算力紧缺开始限制用户使用，每日设置配额且输入内容不能太长。从 11 月 16 日开始，很多用户发帖称使用 DS 遇到限制。包括每日额度上限、单次输入上限和长对话重新对话限制等。如果用户频繁对话消耗完当天额度，...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128500.html" target="_blank" rel="noopener">不用反复切换窗口也能随时查看内容 火狐浏览器推出实用的迷你小窗功能</a>
+        </h3>
+        <p class="card-desc">#软件资讯 不用反复切换窗口也能随时查看网页内容，火狐浏览器 160 版新增迷你小窗功能。该功能允许用户框选网页部分内容将其变成可交互的置顶小窗 (不是单纯的截图)，迷你小窗可以交互、始终前台置顶显示。这个功能可以方便经常需要对照不同页面内...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128499.html" target="_blank" rel="noopener">知名短链接系统Bitly遭到黑客攻击 特朗普等发布的旧帖子链接被篡改到无关页面</a>
+        </h3>
+        <p class="card-desc">#安全资讯 知名短链接系统 Bitly 遭到黑客攻击，特朗普等发布的旧帖子链接被篡改到无关页面。按照 Bitly 自己说法，即便是创建链接的原始账号被删，链接也会继续工作，其短代码也不会被重新使用。但 Bitly 也没有说明此次问题的具体原...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128393.html" target="_blank" rel="noopener">有密码或本地管理员账号也无法解锁：微软测试Windows 11企业设备远程锁定</a>
+        </h3>
+        <p class="card-desc">#系统资讯 有密码或本地管理员账号也无法解锁：微软在 Windows 11 预览版里测试远程锁定功能。该功能主要是给企业使用的，IT 管理员可以远程锁定某些设备阻止其登录和解锁，也可以在屏幕上显示提示。当设备找回后 IT 管理员可以重新将其...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="ai">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#c4b5fd18;color:#c4b5fd">🤖 AI</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128392.html" target="_blank" rel="noopener">金融时报称黄仁勋有可能回归英伟达 其盟友组成作战室游说董事会并争取白宫支持</a>
+        </h3>
+        <p class="card-desc">#行业资讯 辞去英伟达 CEO 数日后，黄仁勋还有可能重新回归英伟达。英国金融时报报道称，黄仁勋已经与盟友讨论回归的可能性，其硅谷盟友正在筹组高管团队，计划游说英伟达董事会并争取白宫支持。如果金融时报报道的内容无误，那这说明黄仁勋自己也有回...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+
+    <article class="news-card" data-category="tech">
+      <div class="card-content">
+        <div class="card-meta">
+          <span class="category-tag" style="background:#5eead418;color:#5eead4">💻 科技</span>
+          <span class="source-tag">蓝点网</span>
+        </div>
+        <h3 class="card-title">
+          <a href="https://www.landian.news/archives/128391.html" target="_blank" rel="noopener">内存价格暴涨背后是否存在串通？三星/SK海力士/美光被要求继续应诉</a>
+        </h3>
+        <p class="card-desc">#行业资讯 内存价格暴涨背后是否存在串通？三星、美光和 SK 海力士未能让 DRAM 反垄断诉讼在初期被驳回。法院审理后认为代表消费者和小企业的原告团体提交的起诉状足以支持案件继续审理。三大内存厂商则表示无论是缩减 DDR4 供应还是涨价都...</p>
+        <time class="card-time">2026年11月16日 星期一</time>
+      </div>
+    </article>
+  
+      </div>
+
+      <!-- 搜索无结果 -->
+      <div class="empty-state" id="searchEmpty" style="display:none">
+        <div class="empty-icon">🔍</div>
+        <h3>未找到相关新闻</h3>
+        <p>试试其他关键词</p>
+      </div>
+
+      
+    </main>
+  </div>
+
+  <!-- 搜索浮层 -->
+  <div id="searchOverlay" class="search-overlay" style="display:none"></div>
+
+  <script>
+    // ===== 分类筛选 =====
+    function filterCategory(cat) {
+      document.querySelectorAll('.cat-nav-btn').forEach(b => b.classList.remove('active'));
+      document.querySelector('[data-category="' + cat + '"]').classList.add('active');
+      document.querySelectorAll('.news-card').forEach(card => {
+        if (cat === 'all' || card.dataset.category === cat) {
+          card.style.display = '';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // ===== 搜索功能 =====
+    (function() {
+      var searchInput = document.getElementById('searchInput');
+      var searchClear = document.getElementById('searchClear');
+      var searchResults = document.getElementById('searchResults');
+      var searchOverlay = document.getElementById('searchOverlay');
+      var newsList = document.getElementById('newsList');
+      var categoryNav = document.getElementById('categoryNav');
+      var statsBar = document.getElementById('statsBar');
+      var searchEmpty = document.getElementById('searchEmpty');
+      var noNewsEmpty = document.getElementById('noNewsEmpty');
+
+      var allArticles = [];
+      var searchIndexLoaded = false;
+
+      // 加载搜索索引
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', '../assets/search-index.json', true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          try {
+            allArticles = JSON.parse(xhr.responseText);
+            searchIndexLoaded = true;
+          } catch(e) {}
+        }
+      };
+      xhr.send();
+
+      // 输入事件
+      var debounceTimer;
+      searchInput.addEventListener('input', function() {
+        var val = this.value.trim();
+        searchClear.style.display = val ? 'block' : 'none';
+
+        if (!val) {
+          hideSearchResults();
+          return;
+        }
+
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(function() { doSearch(val); }, 200);
+      });
+
+      // 清空按钮
+      searchClear.addEventListener('click', function() {
+        searchInput.value = '';
+        searchClear.style.display = 'none';
+        searchInput.focus();
+        hideSearchResults();
+      });
+
+      // 点击遮罩关闭
+      searchOverlay.addEventListener('click', hideSearchResults);
+
+      // ESC 关闭
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') hideSearchResults();
+      });
+
+      function doSearch(query) {
+        if (!searchIndexLoaded) return;
+
+        var kw = query.toLowerCase();
+        var results = [];
+
+        for (var i = 0; i < allArticles.length; i++) {
+          var a = allArticles[i];
+          if (a.title.toLowerCase().indexOf(kw) !== -1 ||
+              (a.description && a.description.toLowerCase().indexOf(kw) !== -1)) {
+            results.push(a);
+            if (results.length >= 30) break; // 最多显示30条
+          }
+        }
+
+        if (results.length === 0) {
+          searchResults.style.display = 'none';
+          searchOverlay.style.display = 'block';
+          newsList.style.display = 'none';
+          categoryNav.style.display = 'none';
+          statsBar.style.display = 'none';
+          searchEmpty.style.display = '';
+          if (noNewsEmpty) noNewsEmpty.style.display = 'none';
+          return;
+        }
+
+        searchEmpty.style.display = 'none';
+        if (noNewsEmpty) noNewsEmpty.style.display = 'none';
+        newsList.style.display = 'none';
+        categoryNav.style.display = 'none';
+        statsBar.style.display = 'none';
+
+        var html = '';
+        var catColors = { ai: '#c4b5fd', tech: '#5eead4', finance: '#5eeab0', car: '#fbbf24' };
+        var catLabels = { ai: '🤖 AI', tech: '💻 科技', finance: '📈 财经', car: '🚗 汽车' };
+
+        for (var j = 0; j < results.length; j++) {
+          var r = results[j];
+          var color = catColors[r.category] || catColors.tech;
+          var label = catLabels[r.category] || catLabels.tech;
+          var desc = r.description ? r.description.slice(0, 100) : '';
+
+          html += '<div class="search-result-item" data-category="' + r.category + '">' +
+            '<div class="sr-meta">' +
+              '<span class="category-tag" style="background:' + color + '18;color:' + color + '">' + label + '</span>' +
+              '<span class="source-tag">' + r.sourceLabel + '</span>' +
+              '<span class="sr-date">' + r.date + '</span>' +
+            '</div>' +
+            '<h3 class="sr-title"><a href="' + r.link + '" target="_blank" rel="noopener">' + highlightMatch(r.title, query) + '</a></h3>' +
+            (desc ? '<p class="sr-desc">' + highlightMatch(desc, query) + '</p>' : '') +
+          '</div>';
+        }
+
+        searchResults.innerHTML = html;
+        searchResults.style.display = '';
+        searchOverlay.style.display = 'block';
+      }
+
+      function highlightMatch(text, query) {
+        var i = text.toLowerCase().indexOf(query.toLowerCase());
+        if (i === -1) return text;
+        return text.slice(0, i) +
+          '<mark class="search-highlight">' + text.slice(i, i + query.length) + '</mark>' +
+          text.slice(i + query.length);
+      }
+
+      function hideSearchResults() {
+        searchResults.style.display = 'none';
+        searchOverlay.style.display = 'none';
+        newsList.style.display = '';
+        categoryNav.style.display = '';
+        statsBar.style.display = '';
+        searchEmpty.style.display = 'none';
+        if (noNewsEmpty) noNewsEmpty.style.display = '';
+      }
+    })();
+  </script>
+</body>
+</html>
